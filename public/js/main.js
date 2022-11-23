@@ -33,9 +33,9 @@ chatForm.addEventListener('submit', (e) => {
 function outputMessage(message){
   const div = document.createElement('div');
   div.classList.add('message');
-  div.innerHTML = `<p class= "meta"> Brad <span> now pm</span> </p>
+  div.innerHTML = `<p class= "meta"> ${message.username}<span> ${message.time}</span> </p>
   <p class="test">
-  ${message}
+  ${message.text}
   </p>`
 // we dont have id here so we want  to collect the class
   document.querySelector('.chat-messages').appendChild(div);  
