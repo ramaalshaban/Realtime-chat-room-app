@@ -29,11 +29,11 @@ io.on("connection", (socket) => {
         io.emit('message', formatMessage(botName,'A user has left the chat'));
     });
 
-
     // Listen for chatMessage
     socket.on('chatMessage',msg => {
         io.emit('message',formatMessage('USER',msg));
     })
+
 
 });
 const PORT = 3007 || process.env.PORT;
