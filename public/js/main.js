@@ -1,8 +1,26 @@
+const chatForm = document.getElementById('chat-form');
+const chatMessages = document.querySelector('.chat-messages');
+
+
+// Get user name and the rrom 
+const {username, room } = Qs.parse(location.search,{
+  ignoreQueryPrefix : true
+});
+
+
+// console.log(username,room)
+
 const socket = io();
+
+
+
 
 // Message from server
 socket.on('message', (message) => {
   console.log(message);
+
+  outputMessage(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
 // create an event listener for the submission of the form
